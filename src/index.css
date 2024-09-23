@@ -11,3 +11,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+h1{
+  color: red;
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+todo-task{
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #c12828;
+  border-radius: 5px;
+}
