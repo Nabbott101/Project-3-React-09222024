@@ -6,6 +6,7 @@ function Contact() {
   const [email, setEmail] = useState('');
   const [comments, setComments] = useState('');
   const [contacts, setContacts] = useState([]);
+  const [filter, setFilter] = useState('all');
 
   const handleAddContact = (e) => {
     e.preventDefault();
@@ -20,10 +21,33 @@ function Contact() {
     }
   };
 
+  const filteredContacts = () => {
+    switch (filter) {
+      case 'completed':
+        return contacts.filter(contact => contact.completed);
+      case 'incomplete':
+        return contacts.filter(contact => !contact.completed);
+      default:
+        return contacts;
+    }
+  };
+
+  const removeContacts = (index) => {
+    setContacts(contacts.filter((_, i) => i !== index));
+  };
+
+  const toggleContacts = (index) => {
+    const newContacts = [...contacts];
+    newContacts[index].completed = !newContacts[index].completed;
+    setContacts(newContacts);
+  };
+
+
   return (
     <div>
       <h1>Contact Form</h1>
       <form onSubmit={handleAddContact}>
+        <tr>
         <input
           type="text"
           name="firstName"
@@ -48,7 +72,8 @@ function Contact() {
           onChange={(e) => setEmail(e.target.value)}
           required
         />
-        <textarea
+        <input
+          type="comments"
           name="comments"
           placeholder="Comments"
           value={comments}
@@ -56,13 +81,23 @@ function Contact() {
           required
         />
         <button type="submit">Add Contact</button>
+        </tr>
       </form>
+      
+      <select onChange={(e) => setFilter(e.target.value)} value={filter}>
+        <option value="all">All</option>
+        <option value="completed">Completed</option>
+        <option value="incomplete">Incomplete</option>
+      </select>
+
       <h2>Contacts List</h2>
       <ul>
-        {contacts.map((contact, index) => (
-          <li key={index}>
+        {filteredContacts().map((contact, index) => (
+          <li key={index} style={{ textDecoration: contact.completed ? 'line-through' : 'none' }}>
             {contact.firstName} {contact.lastName} - {contact.email} <br />
             Comments: {contact.comments}
+            <button onClick={() => toggleContacts(index)}>Toggle Complete</button>
+            <button onClick={() => removeContacts(index)}>Remove</button>
           </li>
         ))}
       </ul>

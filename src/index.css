@@ -1,3 +1,28 @@
+nav{
+color: rgb(188, 8, 8);
+font-size: 30px;
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+;
+}
+
+.navbar{
+  background-color: #dbcdcd;
+  padding: 10px;
+}
+
+.nav-list {
+  display: flex;
+  justify-content: space-around; /* Space items evenly */
+  list-style: none; /* Remove bullets */
+  padding: 0; /* Remove default padding */
+  margin: 0; /* Remove default margin */
+}
+
+.nav-list li {
+  margin: 0 15px; /* Add horizontal margin between items */
+  color: black;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -17,9 +42,26 @@ h1{
   font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
+h2{
+  color: red;
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
 todo-task{
   margin: 10px;
   padding: 10px;
   border: 1px solid #c12828;
   border-radius: 5px;
+}
+
+ul{
+color: rgb(213, 17, 17);
+
+}
+
+tr {
+  display: flex; /* Use flexbox to align items */
+  justify-content: space-between; /* Space items evenly */
+  padding: 10px;
+  border: 1px solid #ccc; /* Optional: border styling */
 }

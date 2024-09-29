@@ -52,6 +52,8 @@ function Todo() {
         <option value="completed">Completed</option>
         <option value="incomplete">Incomplete</option>
       </select>
+      
+      <h2>Todos:</h2>
 
       <ul>
         {filteredTodos().map((todo, index) => (
